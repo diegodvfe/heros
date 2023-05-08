@@ -6,7 +6,7 @@ export const LoginPage = () => {
 
    const onLogin =() => {
       // console.log('login');
-      navigate('/heros', {
+      navigate('/marvel', {
          replace:true
       })
    }
