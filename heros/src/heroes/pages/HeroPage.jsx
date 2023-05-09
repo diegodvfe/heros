@@ -1,19 +1,27 @@
-import {Navigate, useParams} from "react-router-dom";
+import {
+   Navigate,
+   useParams,
+} from "react-router-dom";
 import { getHeroById } from "../helpers";
 
 export const HeroPage = () => {
    const { id } = useParams();
 
-   const hero = getHeroById (id);
+   const hero = getHeroById(id);
 
- console.log(hero)
-
-   
+   if (!hero) {
+      return <Navigate to="/marvel" />;
+   }
 
    return (
-   <> <h1>
-      {hero.characters}
-      </h1>
-      </>
+      <div className="row  mt-5">
+         <div className="col-4">
+            <img
+               src={` /assets/heroes/${id}.jpg `}
+               alt={hero.superhero}
+               className="img-thumbnail"
+            />
+         </div>
+      </div>
    );
 };
