@@ -1,10 +1,13 @@
+import { useMemo } from "react";
 import { getHerosPubllisher } from "../helpers";
 import { HeroCard } from "./HeroCard";
 
 // eslint-disable-next-line react/prop-types
 export const HeroList = ({ publisher }) => {
    // eslint-disable-next-line no-unused-vars
-   const heroes = getHerosPubllisher(publisher);
+   const heroes = useMemo(() =>
+      getHerosPubllisher(publisher) , [publisher]
+   ); 
 
    return (
       <div className="row rows-cols-1 row-cols-md-3 row-cols-sm-1 g-3">

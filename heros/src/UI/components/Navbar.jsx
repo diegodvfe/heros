@@ -20,7 +20,11 @@ export const Navbar = () => {
          <div className="navbar-collapse">
             <div className="navbar-nav">
                <NavLink
-                  className="nav-item nav-link"
+                  className={({ isActive }) =>
+                     `nav-item nav-link ${
+                        isActive ? "active" : ""
+                     }`
+                  }
                   to="/marvel"
                >
                   Marvel
@@ -65,7 +69,8 @@ export const Navbar = () => {
                   Diego Lopez
                </span>
 
-               <button className="nav-item nav-link btn"
+               <button
+                  className="nav-item nav-link btn"
                   onClick={handleLogout}
                >
                   Logout

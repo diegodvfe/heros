@@ -1,5 +1,15 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+
+   const CharacterHeros = ({
+      alter_ego,
+      characters,
+   }) => {
+      if (alter_ego === characters) return <></>;
+
+      return <p> {characters} </p>;
+   };
+
 export const HeroCard = ({
    id,
    superhero,
@@ -11,15 +21,6 @@ export const HeroCard = ({
    characters,
 }) => {
    const heroImage = `/assets/heroes/${id}.jpg`;
-
-   const CharacterHeros = ({
-      alter_ego,
-      characters,
-   }) => {
-      if (alter_ego === characters) return <></>;
-
-      return <p> {characters} </p>;
-   };
 
    return (
       <div className="col ">
@@ -34,27 +35,33 @@ export const HeroCard = ({
                </div>
 
                <div className="col-8">
-                  <h5 className="card-title">
-                     {superhero}
-                  </h5>
-                  <p className="card-text">
-                     {alter_ego}
-                  </p>
-                  {/* {
+                  <div className="card-body">
+                     <h5 className="card-title">
+                        {superhero}
+                     </h5>
+                     <p className="card-text">
+                        {alter_ego}
+                     </p>
+
+                     {/* {
                         (alter_ego !== characters) && ( <p>{characters}</p> )
                     } */}
-                  <CharacterHeros
-                     characters={characters}
-                     alter_ego={alter_ego}
-                  />
-                  <p className="card-text">
-                     <small className="text-muted">
-                        {first_appearance}
-                     </small>
-                  </p>
-                  <Link to={`/hero/${id}`} className="btn btn-primary ">
-                     Mas...{" "}
-                  </Link>
+                     <CharacterHeros
+                        characters={characters}
+                        alter_ego={alter_ego}
+                     />
+                     <p className="card-text">
+                        <small className="text-muted">
+                           {first_appearance}
+                        </small>
+                     </p>
+                     <Link
+                        to={`/heros/${id}`}
+                        className="btn btn-primary "
+                     >
+                        Mas...
+                     </Link>
+                  </div>
                </div>
             </div>
          </div>
